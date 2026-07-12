@@ -73,6 +73,7 @@ def finalize_incident(inc):
         "detected_at": inc["detected_at"],
         "trigger_line": inc["trigger_line"],
         "trigger_container": inc["trigger_container"],
+        "trigger_reason": inc.get("trigger_reason", "error_log"),
         "occurrence_count": inc.get("occurrence_count", 1),
         "logs": [{"container": e["container"], "timestamp": e["timestamp"], "line": e["line"]} for e in inc["logs"]]
     }
@@ -142,13 +143,28 @@ def main():
 
         # Trigger logic
         is_trigger = False
+        trigger_reason = None
         try:
             json_data = json.loads(message)
-            if isinstance(json_data, dict) and str(json_data.get("level", "")).upper() in ("ERROR", "FATAL"):
-                is_trigger = True
+            if isinstance(json_data, dict):
+                lvl = str(json_data.get("level", "")).upper()
+                msg_text = str(json_data.get("message", ""))
+                if lvl in ("ERROR", "FATAL"):
+                    is_trigger = True
+                    trigger_reason = "error_log"
+                # FIX: latency detection gap — watch for the SLOW_REQUEST
+                # marker logged by order-service's middleware, since a slow
+                # but successful request never produces an ERROR/FATAL line.
+                elif "SLOW_REQUEST" in msg_text:
+                    is_trigger = True
+                    trigger_reason = "slow_request"
         except Exception:
             if "ERROR" in message or "FATAL" in message:
                 is_trigger = True
+                trigger_reason = "error_log"
+            elif "SLOW_REQUEST" in message:
+                is_trigger = True
+                trigger_reason = "slow_request"
 
         if is_trigger:
             now_real = datetime.now(timezone.utc)
@@ -180,6 +196,7 @@ def main():
                     "real_trigger_time": now_real,
                     "trigger_line": message,
                     "trigger_container": container_name,
+                    "trigger_reason": trigger_reason,
                     "signature": sig,
                     "occurrence_count": 1,
                     "logs": [e for _, e in history_buffer]

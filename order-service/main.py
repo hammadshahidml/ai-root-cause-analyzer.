@@ -82,18 +82,39 @@ class OrderCreate(BaseModel):
     item: str
     quantity: int
 
+SLOW_REQUEST_THRESHOLD_SECONDS = 3.0
+
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
     start_time = time.time()
     try:
         response = await call_next(request)
+        duration = time.time() - start_time
         status_code = response.status_code
         level = logging.INFO if status_code < 400 else logging.WARNING
         logger.log(
             level,
             f"Request {request.method} {request.url.path} finished",
-            extra={"endpoint": request.url.path, "status_code": status_code}
+            extra={
+                "endpoint": request.url.path,
+                "status_code": status_code,
+                "duration_seconds": round(duration, 3),
+            }
         )
+        # FIX: latency detection gap — a slow request that still succeeds
+        # produces no ERROR/FATAL log, so the collector's error-scanning
+        # trigger never sees it. Logging a WARNING with a fixed marker
+        # phrase here gives the collector something to watch for.
+        if duration > SLOW_REQUEST_THRESHOLD_SECONDS:
+            logger.warning(
+                f"SLOW_REQUEST: {request.method} {request.url.path} took "
+                f"{round(duration, 2)}s (threshold: {SLOW_REQUEST_THRESHOLD_SECONDS}s)",
+                extra={
+                    "endpoint": request.url.path,
+                    "status_code": status_code,
+                    "duration_seconds": round(duration, 3),
+                }
+            )
         return response
     except Exception as exc:
         logger.error(

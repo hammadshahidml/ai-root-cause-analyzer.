@@ -42,22 +42,37 @@ def build_user_content(incident: Dict[str, Any], similar_incidents: list) -> str
     """Build the user message, embedding the current incident plus any
     similar past incidents (with their prior diagnosis) as reference-only
     context. Trims oversized incidents to stay within LLM token limits.
+
+    FIX: the first version only truncated the CURRENT incident's logs.
+    Past incidents pulled in via RAG can themselves be large (e.g. one
+    generated during a crash loop before deduplication existed), and were
+    being included in full, causing 413 "request too large" errors even
+    when the current incident was small. Now both are trimmed.
     """
-    trimmed_incident = dict(incident)
-    logs = trimmed_incident.get("logs", [])
-    max_logs = 40
-    if len(logs) > max_logs:
-        trimmed_incident["logs"] = logs[:max_logs]
-        trimmed_incident["_note"] = (
-            f"Log list truncated: {len(logs)} lines captured, "
-            f"showing first {max_logs}."
-        )
+    def trim_logs(inc: Dict[str, Any], max_logs: int) -> Dict[str, Any]:
+        trimmed = dict(inc)
+        logs = trimmed.get("logs", [])
+        if len(logs) > max_logs:
+            trimmed["logs"] = logs[:max_logs]
+            trimmed["_note"] = (
+                f"Log list truncated: {len(logs)} lines captured, "
+                f"showing first {max_logs}."
+            )
+        return trimmed
+
+    trimmed_incident = trim_logs(incident, max_logs=40)
+
+    trimmed_similar = []
+    for sim in similar_incidents:
+        # Similar incidents get a tighter cap, since they're reference-only
+        # context and shouldn't dominate the token budget.
+        trimmed_similar.append(trim_logs(sim, max_logs=15))
 
     payload = {
         "current_incident": trimmed_incident,
     }
-    if similar_incidents:
-        payload["past_similar_incidents_for_reference_only"] = similar_incidents
+    if trimmed_similar:
+        payload["past_similar_incidents_for_reference_only"] = trimmed_similar
     return json.dumps(payload, ensure_ascii=False)
 
 
@@ -211,4 +226,3 @@ if __name__ == "__main__":
     incident_path = sys.argv[1]
     result = diagnose_incident(incident_path)
     pretty_print_diagnosis(result)
-    
