@@ -1070,12 +1070,12 @@
       "line": "{\"timestamp\": \"2026-07-11T13:40:51.085558Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (4/15)\"}"
     }
   ],
-  "root_cause": "Incorrect password for user \"postgres\"",
+  "root_cause": "Incorrect password for PostgreSQL user 'postgres'",
   "confidence": "high",
-  "reasoning": "The error message 'password authentication failed for user \"postgres\"' directly indicates the issue is with the password authentication, and the surrounding context does not suggest any other plausible cause such as network issues or database shutdown.",
+  "reasoning": "The error message 'password authentication failed for user \"postgres\"' directly indicates that the password provided for the PostgreSQL user 'postgres' is incorrect. The surrounding log context does not suggest any other plausible cause for the error.",
   "evidence": [
     "2026-07-11 13:40:25.563 UTC [75] FATAL:  password authentication failed for user \"postgres\""
   ],
   "conflict_flag": null,
-  "suggested_fix": "Verify the password for the \"postgres\" user and ensure it matches the expected password."
+  "suggested_fix": "Verify the password for the PostgreSQL user 'postgres' and ensure it matches the one configured in the application."
 }

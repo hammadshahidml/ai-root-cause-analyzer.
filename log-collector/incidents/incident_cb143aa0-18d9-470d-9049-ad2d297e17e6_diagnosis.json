@@ -15,12 +15,12 @@
       "line": "{\"timestamp\": \"2026-07-11T05:33:36.781914Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 500, \"message\": \"Request GET /health finished\"}"
     }
   ],
-  "root_cause": "Unknown, possible DNS resolution failure or Postgres container issue",
+  "root_cause": "Unknown",
   "confidence": "low",
-  "reasoning": "The error message indicates a failure to translate the host name 'postgres' to an address, which could be due to a DNS resolution failure or an issue with the Postgres container. However, there is no clear evidence in the provided logs to determine the root cause.",
+  "reasoning": "The error message indicates a failure to translate the host name 'postgres' to an address, which is a network and connectivity-related error. Without explicit log evidence confirming the specific cause, such as a shutdown message or a crash, the root cause remains ambiguous.",
   "evidence": [
     "{\"timestamp\": \"2026-07-11T05:33:36.417462Z\", \"level\": \"ERROR\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 500, \"message\": \"Health check failed: (psycopg2.OperationalError) could not translate host name \\\"postgres\\\" to address: No address associated with hostname\"}"
   ],
   "conflict_flag": null,
-  "suggested_fix": "Investigate the Postgres container status and DNS resolution for the 'postgres' host name."
+  "suggested_fix": "Investigate the network configuration and the Postgres database to determine the cause of the error."
 }

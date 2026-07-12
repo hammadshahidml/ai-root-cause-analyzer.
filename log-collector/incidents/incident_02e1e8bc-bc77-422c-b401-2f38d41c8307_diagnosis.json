@@ -1,0 +1,63 @@
+{
+  "incident_id": "02e1e8bc-bc77-422c-b401-2f38d41c8307",
+  "detected_at": "2026-07-12T13:03:56.414916732Z",
+  "trigger_line": "{\"timestamp\": \"2026-07-12T13:03:56.414404Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"SLOW_REQUEST: POST /debug/slow-query took 10.19s (threshold: 3.0s)\", \"duration_seconds\": 10.188}",
+  "trigger_container": "airca-order-service-1",
+  "trigger_reason": "slow_request",
+  "occurrence_count": 3,
+  "logs": [
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:03:56.402838689Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:03:56.402059Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"Debug slow-query endpoint completed after 10s delay\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:03:56.414551243Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:03:56.413892Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"Request POST /debug/slow-query finished\", \"duration_seconds\": 10.188}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:03:56.414916732Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:03:56.414404Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"SLOW_REQUEST: POST /debug/slow-query took 10.19s (threshold: 3.0s)\", \"duration_seconds\": 10.188}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:04:06.902588711Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:04:06.902097Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"Debug slow-query endpoint completed after 10s delay\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:04:06.905538912Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:04:06.903161Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"Request POST /debug/slow-query finished\", \"duration_seconds\": 10.016}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:04:06.905577020Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:04:06.903467Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"SLOW_REQUEST: POST /debug/slow-query took 10.02s (threshold: 3.0s)\", \"duration_seconds\": 10.016}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:04:16.942989244Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:04:16.941261Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"Debug slow-query endpoint completed after 10s delay\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:04:16.947237843Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:04:16.944471Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"Request POST /debug/slow-query finished\", \"duration_seconds\": 10.009}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:04:16.947850915Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:04:16.945407Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"SLOW_REQUEST: POST /debug/slow-query took 10.01s (threshold: 3.0s)\", \"duration_seconds\": 10.009}"
+    }
+  ],
+  "root_cause": "Slow request processing",
+  "confidence": "high",
+  "reasoning": "The error message 'SLOW_REQUEST: POST /debug/slow-query took 10.19s (threshold: 3.0s)' clearly indicates that the request took longer than the threshold, and the surrounding log context shows repeated instances of slow requests with similar durations.",
+  "evidence": [
+    "{\"timestamp\": \"2026-07-12T13:03:56.414404Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"SLOW_REQUEST: POST /debug/slow-query took 10.19s (threshold: 3.0s)\", \"duration_seconds\": 10.188}"
+  ],
+  "conflict_flag": null,
+  "suggested_fix": "Investigate the cause of the slow request processing, such as database queries, network latency, or application bottlenecks, and optimize the endpoint to reduce the response time."
+}

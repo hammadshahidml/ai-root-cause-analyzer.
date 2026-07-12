@@ -50,13 +50,14 @@
       "line": "{\"timestamp\": \"2026-07-11T05:38:38.507476Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 500, \"message\": \"Request GET /health finished\"}"
     }
   ],
-  "root_cause": "Postgres container shutdown",
+  "root_cause": "Postgres database shutdown",
   "confidence": "high",
-  "reasoning": "The error message indicates a failure to translate the host name 'postgres' to an address, but the surrounding log context shows that the Postgres container was shut down, as evidenced by the 'received fast shutdown request' and 'database system is shut down' log lines.",
+  "reasoning": "The error message indicates a failure to translate the host name 'postgres' to an address, which is a network and connectivity-related error. However, the surrounding log context shows that the Postgres database was shut down, as evidenced by the 'received fast shutdown request' and 'shutting down' log lines, which suggests that the root cause is the intentional shutdown of the Postgres database.",
   "evidence": [
     "2026-07-11 05:38:17.222 UTC [1] LOG:  received fast shutdown request",
+    "2026-07-11 05:38:17.244 UTC [27] LOG:  shutting down",
     "2026-07-11 05:38:17.761 UTC [1] LOG:  database system is shut down"
   ],
   "conflict_flag": null,
-  "suggested_fix": "Investigate why the Postgres container was shut down and ensure it is running before attempting to connect to it."
+  "suggested_fix": "Investigate why the Postgres database was shut down and ensure it is running before attempting to connect to it."
 }

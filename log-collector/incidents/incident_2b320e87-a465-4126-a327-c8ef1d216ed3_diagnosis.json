@@ -1,0 +1,215 @@
+{
+  "incident_id": "2b320e87-a465-4126-a327-c8ef1d216ed3",
+  "detected_at": "2026-07-12T13:46:52.538600317Z",
+  "trigger_line": "2026-07-12 13:46:52.531 UTC [134] FATAL:  terminating connection due to administrator command",
+  "trigger_container": "airca-postgres-1",
+  "trigger_reason": "error_log",
+  "occurrence_count": 1,
+  "logs": [
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:46:52.518850963Z",
+      "line": "2026-07-12 13:46:52.518 UTC [1] LOG:  received fast shutdown request"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:46:52.537513071Z",
+      "line": "2026-07-12 13:46:52.530 UTC [1] LOG:  aborting any active transactions"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:46:52.538600317Z",
+      "line": "2026-07-12 13:46:52.531 UTC [134] FATAL:  terminating connection due to administrator command"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:46:52.549595096Z",
+      "line": "2026-07-12 13:46:52.546 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 31) exited with exit code 1"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:46:52.551073330Z",
+      "line": "2026-07-12 13:46:52.550 UTC [26] LOG:  shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:46:52.557796146Z",
+      "line": "2026-07-12 13:46:52.557 UTC [26] LOG:  checkpoint starting: shutdown immediate"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:46:52.608601304Z",
+      "line": "2026-07-12 13:46:52.608 UTC [26] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.010 s, sync=0.008 s, total=0.058 s; sync files=2, longest=0.005 s, average=0.004 s; distance=0 kB, estimate=0 kB; lsn=0/152FD40, redo lsn=0/152FD40"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:46:52.620436773Z",
+      "line": "2026-07-12 13:46:52.619 UTC [1] LOG:  database system is shut down"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:46:53.682243381Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:46:53.681820Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Shutting down\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:46:53.682487665Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:46:53.682042Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Shutting down\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:46:53.783779658Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:46:53.782923Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Waiting for application shutdown.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:46:53.783910370Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:46:53.783158Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Waiting for application shutdown.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:46:53.784209786Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:46:53.783802Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Application shutdown complete.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:46:53.784247977Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:46:53.784025Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Application shutdown complete.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:46:53.784616858Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:46:53.784309Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Finished server process [1]\", \"color_message\": \"Finished server process [\\u001b[36m%d\\u001b[0m]\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:46:53.784896827Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:46:53.784511Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Finished server process [1]\", \"color_message\": \"Finished server process [\\u001b[36m%d\\u001b[0m]\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:03.432225820Z",
+      "line": "2026-07-12 13:47:03.431 UTC [42] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:03.432265820Z",
+      "line": "2026-07-12 13:47:03.431 UTC [42] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:05.542016691Z",
+      "line": "2026-07-12 13:47:05.540 UTC [43] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:05.546307364Z",
+      "line": "2026-07-12 13:47:05.540 UTC [43] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:47:05.546366010Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:47:05.544000Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (2/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:07.613587673Z",
+      "line": "2026-07-12 13:47:07.613 UTC [53] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:07.613657492Z",
+      "line": "2026-07-12 13:47:07.613 UTC [53] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:47:07.614490419Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:47:07.614039Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (3/15)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:47:09.751096902Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:47:09.750525Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (4/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:09.753644182Z",
+      "line": "2026-07-12 13:47:09.749 UTC [54] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:09.753735899Z",
+      "line": "2026-07-12 13:47:09.749 UTC [54] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:11.808330662Z",
+      "line": "2026-07-12 13:47:11.808 UTC [63] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:11.808375070Z",
+      "line": "2026-07-12 13:47:11.808 UTC [63] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:47:11.809106207Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:47:11.808728Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (5/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:13.631757320Z",
+      "line": "2026-07-12 13:47:13.631 UTC [1] LOG:  received fast shutdown request"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:13.640783018Z",
+      "line": "2026-07-12 13:47:13.640 UTC [1] LOG:  aborting any active transactions"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:13.648693407Z",
+      "line": "2026-07-12 13:47:13.648 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 33) exited with exit code 1"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:13.657681898Z",
+      "line": "2026-07-12 13:47:13.656 UTC [28] LOG:  shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:13.666231007Z",
+      "line": "2026-07-12 13:47:13.665 UTC [28] LOG:  checkpoint starting: shutdown immediate"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:13.709471345Z",
+      "line": "2026-07-12 13:47:13.707 UTC [28] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.013 s, sync=0.005 s, total=0.052 s; sync files=2, longest=0.003 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/152FDF0, redo lsn=0/152FDF0"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:47:13.727766888Z",
+      "line": "2026-07-12 13:47:13.727 UTC [1] LOG:  database system is shut down"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:47:13.820541648Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:47:13.817149Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (6/15)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:47:19.445114924Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:47:19.442459Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (7/15)\"}"
+    }
+  ],
+  "root_cause": "Intentional database shutdown followed by password authentication failure",
+  "confidence": "high",
+  "reasoning": "The logs show a sequence of events starting with a fast shutdown request, followed by the database shutting down, and then repeated attempts to connect to the database with a password authentication failure for the user 'postgres'. This indicates that the initial shutdown was intentional, but the subsequent connection attempts failed due to an incorrect password.",
+  "evidence": [
+    "2026-07-12 13:46:52.518 UTC [1] LOG:  received fast shutdown request",
+    "2026-07-12 13:46:52.531 UTC [134] FATAL:  terminating connection due to administrator command",
+    "2026-07-12 13:47:03.431 UTC [42] FATAL:  password authentication failed for user \"postgres\""
+  ],
+  "conflict_flag": null,
+  "suggested_fix": "Verify the password for the PostgreSQL user 'postgres' and ensure it matches the one configured in the application. Also, investigate who or what initiated the shutdown command if it was not intended."
+}

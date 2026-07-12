@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI ROOT CAUSE ANALYZER — Incident Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --panel: #0f1520;
+    --panel-border: #1c2634;
+    --text: #c8d3e0;
+    --text-dim: #5a6b80;
+    --accent-cyan: #29e0d8;
+    --sev-error: #ff3b5c;
+    --sev-latency: #ffb020;
+    --sev-oom: #b06bff;
+    --sev-died: #ff5fc4;
+    --sev-compound: #29e0d8;
+    --conf-high: #33d17a;
+    --conf-med: #ffb020;
+    --conf-low: #ff8a3d;
+    --conf-none: #ff3b5c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(41,224,216,0.06), transparent 40%),
+      radial-gradient(circle at 85% 100%, rgba(176,107,255,0.05), transparent 40%);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 100vh;
+    padding: 28px 36px 60px;
+  }
+  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #eef3fa;
+  }
+  header h1 span { color: var(--accent-cyan); }
+  .status-live {
+    font-size: 12px;
+    color: var(--conf-high);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--conf-high);
+    box-shadow: 0 0 8px var(--conf-high);
+    animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .stat-card .label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .stat-card .value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #eef3fa;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .panel-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--panel-border);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .incident-row {
+    display: grid;
+    grid-template-columns: 4px 1fr auto auto auto;
+    gap: 14px;
+    align-items: center;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--panel-border);
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: background 0.12s ease, border-left-color 0.12s ease;
+  }
+  .incident-row:hover {
+    background: rgba(41,224,216,0.05);
+    border-left-color: rgba(41,224,216,0.4);
+  }
+  .incident-row.selected {
+    background: rgba(41,224,216,0.1);
+    border-left-color: var(--accent-cyan);
+  }
+  .incident-row .bar { align-self: stretch; border-radius: 2px; }
+  .view-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 3px;
+    border: 1px solid var(--panel-border);
+    background: transparent;
+    color: var(--text-dim);
+    white-space: nowrap;
+    transition: all 0.12s ease;
+  }
+  .incident-row:hover .view-btn {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+  .incident-row.selected .view-btn {
+    background: var(--accent-cyan);
+    color: #0a0e14;
+    border-color: var(--accent-cyan);
+  }
+  .incident-row .cause {
+    font-size: 13px;
+    color: #dbe4ee;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .incident-row .trigger-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .conf-badge {
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .detail-body { padding: 18px; }
+  .detail-body .field { margin-bottom: 16px; }
+  .detail-body .field-label {
+    font-size: 10px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .detail-body .field-value { font-size: 13px; line-height: 1.5; color: #dbe4ee; }
+  .evidence-line {
+    background: #060a10;
+    border-left: 2px solid var(--accent-cyan);
+    padding: 8px 10px;
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+    word-break: break-word;
+  }
+  .conflict-box {
+    background: rgba(255,59,92,0.08);
+    border: 1px solid var(--sev-error);
+    color: #ffb0bd;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  .terminal {
+    background: #060a10;
+    padding: 14px 16px;
+    max-height: 340px;
+    overflow-y: auto;
+    font-size: 11.5px;
+    line-height: 1.7;
+  }
+  .terminal .log-line { color: var(--text-dim); white-space: pre-wrap; word-break: break-word; }
+  .terminal .log-line .ts { color: #3a4a5e; }
+  .terminal .cursor {
+    display: inline-block; width: 7px; height: 13px;
+    background: var(--accent-cyan);
+    animation: blink 1s steps(1) infinite;
+    vertical-align: text-bottom;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .empty-state {
+    padding: 60px 20px; text-align: center; color: var(--text-dim); font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI ROOT CAUSE <span>ANALYZER</span> — Incident Console</h1>
+  <div class="status-live"><span class="dot"></span> LIVE FEED</div>
+</header>
+
+<div class="stats" id="stats"></div>
+
+<div class="layout">
+  <div class="panel">
+    <div class="panel-header"><span>Incident Log</span><span id="incident-count"></span></div>
+    <div id="incident-list"></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header"><span>Detail</span></div>
+    <div id="detail-panel" class="detail-body"></div>
+  </div>
+</div>
+
+<script>
+const TRIGGER_COLORS = {
+  error_log:      { bar: 'var(--sev-error)',    tag: 'rgba(255,59,92,0.15)',  text: 'var(--sev-error)' },
+  slow_request:   { bar: 'var(--sev-latency)',  tag: 'rgba(255,176,32,0.15)', text: 'var(--sev-latency)' },
+  container_died: { bar: 'var(--sev-died)',     tag: 'rgba(255,95,196,0.15)', text: 'var(--sev-died)' },
+};
+const CONF_COLORS = {
+  high: { bg: 'rgba(51,209,122,0.15)', text: 'var(--conf-high)' },
+  medium: { bg: 'rgba(255,176,32,0.15)', text: 'var(--conf-med)' },
+  low: { bg: 'rgba(255,138,61,0.15)', text: 'var(--conf-low)' },
+  insufficient_evidence: { bg: 'rgba(255,59,92,0.15)', text: 'var(--conf-none)' },
+};
+
+let INCIDENTS = [];
+let selectedIndex = 0;
+
+function triggerStyle(reason) {
+  return TRIGGER_COLORS[reason] || { bar: 'var(--text-dim)', tag: 'rgba(255,255,255,0.08)', text: 'var(--text-dim)' };
+}
+function confStyle(conf) {
+  const key = (conf || '').toLowerCase();
+  return CONF_COLORS[key] || CONF_COLORS.insufficient_evidence;
+}
+
+function renderStats() {
+  const total = INCIDENTS.length;
+  const high = INCIDENTS.filter(i => (i.confidence||'').toLowerCase() === 'high').length;
+  const low = INCIDENTS.filter(i => ['low','insufficient_evidence'].includes((i.confidence||'').toLowerCase())).length;
+  const conflicts = INCIDENTS.filter(i => i.conflict_flag).length;
+
+  document.getElementById('stats').innerHTML = `
+    <div class="stat-card"><div class="label">Total Incidents</div><div class="value">${total}</div></div>
+    <div class="stat-card"><div class="label">High Confidence</div><div class="value" style="color:var(--conf-high)">${high}</div></div>
+    <div class="stat-card"><div class="label">Low / Insufficient</div><div class="value" style="color:var(--conf-low)">${low}</div></div>
+    <div class="stat-card"><div class="label">Flagged Conflicts</div><div class="value" style="color:var(--sev-error)">${conflicts}</div></div>
+  `;
+}
+
+function renderList() {
+  document.getElementById('incident-count').textContent = `${INCIDENTS.length} entries`;
+  const listEl = document.getElementById('incident-list');
+
+  if (INCIDENTS.length === 0) {
+    listEl.innerHTML = `<div class="empty-state">No diagnosed incidents found.<br>Run diagnose.py on some incidents, then re-run export_data.py.</div>`;
+    return;
+  }
+
+  listEl.innerHTML = INCIDENTS.map((inc, i) => {
+    const tStyle = triggerStyle(inc.trigger_reason);
+    const cStyle = confStyle(inc.confidence);
+    const reason = (inc.trigger_reason || 'error_log').replace('_',' ');
+    return `
+      <div class="incident-row ${i === selectedIndex ? 'selected' : ''}" onclick="selectIncident(${i})">
+        <div class="bar" style="background:${tStyle.bar}"></div>
+        <div class="cause">${escapeHtml(inc.root_cause || 'Unknown')}</div>
+        <div class="trigger-tag" style="background:${tStyle.tag}; color:${tStyle.text}">${reason}</div>
+        <div class="conf-badge" style="background:${cStyle.bg}; color:${cStyle.text}">${inc.confidence || 'n/a'}</div>
+        <button class="view-btn" onclick="event.stopPropagation(); selectIncident(${i})">${i === selectedIndex ? '● Viewing' : 'View →'}</button>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderDetail() {
+  const el = document.getElementById('detail-panel');
+  if (INCIDENTS.length === 0) { el.innerHTML = ''; return; }
+  const inc = INCIDENTS[selectedIndex];
+
+  const evidenceHtml = (inc.evidence || []).map(e =>
+    `<div class="evidence-line">${escapeHtml(String(e))}</div>`
+  ).join('') || `<div class="evidence-line">No evidence recorded.</div>`;
+
+  const conflictHtml = inc.conflict_flag
+    ? `<div class="field"><div class="field-label">Conflict Flag</div><div class="conflict-box">⚠ ${escapeHtml(inc.conflict_flag)}</div></div>`
+    : '';
+
+  const logs = (inc.logs || []).slice(0, 60).map(l =>
+    `<div class="log-line"><span class="ts">${escapeHtml(l.timestamp || '')}</span> [${escapeHtml(l.container || '')}] ${escapeHtml(l.line || '')}</div>`
+  ).join('');
+
+  el.innerHTML = `
+    <div class="field">
+      <div class="field-label">Root Cause</div>
+      <div class="field-value" style="font-size:15px; font-weight:600; color:#fff;">${escapeHtml(inc.root_cause || 'Unknown')}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Reasoning</div>
+      <div class="field-value">${escapeHtml(inc.reasoning || 'N/A')}</div>
+    </div>
+    ${conflictHtml}
+    <div class="field">
+      <div class="field-label">Evidence</div>
+      ${evidenceHtml}
+    </div>
+    <div class="field">
+      <div class="field-label">Suggested Fix</div>
+      <div class="field-value">${escapeHtml(inc.suggested_fix || 'N/A')}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Raw Log Context (${(inc.logs||[]).length} lines)</div>
+      <div class="terminal">${logs}<span class="cursor"></span></div>
+    </div>
+  `;
+}
+
+function selectIncident(i) {
+  selectedIndex = i;
+  renderList();
+  renderDetail();
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+fetch('./data.json')
+  .then(r => r.json())
+  .then(data => {
+    INCIDENTS = data;
+    renderStats();
+    renderList();
+    renderDetail();
+  })
+  .catch(err => {
+    document.getElementById('incident-list').innerHTML =
+      `<div class="empty-state">Could not load data.json.<br>Run: python export_data.py<br>Then serve this folder, e.g.: python -m http.server 8000</div>`;
+  });
+</script>
+
+</body>
+</html>

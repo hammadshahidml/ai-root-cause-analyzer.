@@ -1,0 +1,424 @@
+{
+  "incident_id": "237a76a4-55c4-49d5-b5aa-e8672cdfa485",
+  "detected_at": "2026-07-12T13:48:44.363553+00:00",
+  "trigger_line": "CONTAINER_DIED container=airca-order-service-1 exit_code=137",
+  "trigger_container": "airca-order-service-1",
+  "trigger_reason": "container_died",
+  "occurrence_count": 1,
+  "logs": [
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:21.217091980Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:21.213389Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"Debug slow-query endpoint completed after 10s delay\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:21.220085544Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:21.218162Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"Request POST /debug/slow-query finished\", \"duration_seconds\": 10.025}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:21.221679770Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:21.219642Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/slow-query\", \"status_code\": 200, \"message\": \"SLOW_REQUEST: POST /debug/slow-query took 10.02s (threshold: 3.0s)\", \"duration_seconds\": 10.025}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:21.360893991Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:21.358538Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 1 (~10MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:21.368830907Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:21.367482Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.087}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:21.903522041Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:21.903003Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 2 (~20MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:21.905372488Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:21.904958Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.017}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:22.493666204Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:22.491796Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 3 (~30MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:22.498826167Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:22.497280Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.075}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:23.115315895Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:23.114899Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 4 (~40MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:23.121392578Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:23.119317Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.065}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:23.693180935Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:23.692068Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 5 (~50MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:23.696506057Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:23.695032Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.056}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:24.330047795Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:24.325963Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 6 (~60MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:24.335860557Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:24.334582Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.116}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:24.932985717Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:24.931063Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 7 (~70MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:24.941868385Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:24.940247Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.085}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:25.571327152Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:25.570521Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 8 (~80MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:25.578374880Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:25.577764Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.102}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:26.169988616Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:26.168272Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 9 (~90MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:26.173234602Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:26.171683Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.071}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:26.764890257Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:26.763489Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 10 (~100MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:26.767486046Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:26.766465Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.068}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:27.303697810Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:27.303313Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 11 (~110MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:27.306137127Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:27.304137Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.02}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:28.050931514Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:28.050422Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 12 (~120MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:28.052612484Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:28.051582Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.238}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:28.664736013Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:28.663562Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 13 (~130MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:28.668083446Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:28.666548Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.099}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:29.313227296Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:29.312831Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 14 (~140MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:29.314059177Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:29.313677Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.104}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:30.054188618Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:30.047410Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 15 (~150MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:30.135793414Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:30.134289Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.286}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:30.985104591Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:30.984252Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 16 (~160MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:30.987093007Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:30.985795Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.273}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:31.769187518Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:31.748909Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 17 (~170MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:31.773179357Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:31.771494Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.265}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:32.494599114Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:32.490898Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 18 (~180MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:32.496837045Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:32.496343Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.207}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:33.116337649Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:33.115103Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 19 (~190MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:33.117533200Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:33.116784Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.105}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:33.768065200Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:33.767154Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 20 (~200MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:33.773340930Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:33.771785Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.132}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:34.372890943Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:34.372131Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 21 (~210MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:34.374080791Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:34.373166Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.081}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:35.123962061Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:35.123470Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 22 (~220MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:35.126145367Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:35.124662Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.236}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:35.731627512Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:35.731117Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 23 (~230MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:35.733753291Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:35.733110Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.091}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:36.488158646Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:36.487677Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 24 (~240MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:36.489230639Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:36.488776Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.236}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:37.238234005Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:37.237863Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 25 (~250MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:37.239074792Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:37.238719Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.23}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:37.965552228Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:37.963097Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 26 (~260MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:37.969269892Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:37.967543Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.205}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:38.674955479Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:38.674507Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 27 (~270MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:38.677125851Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:38.675281Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.177}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:39.273071215Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:39.272635Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 28 (~280MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:39.274413316Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:39.273940Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.075}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:39.849801077Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:39.849379Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 29 (~290MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:39.851915424Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:39.851406Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.057}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:40.452539082Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:40.451805Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 30 (~300MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:40.475897038Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:40.469845Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.097}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:41.128523774Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:41.127231Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 31 (~310MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:41.136748356Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:41.135854Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.154}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:41.753017418Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:41.752690Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 32 (~320MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:41.753954237Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:41.753603Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.099}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:42.323789613Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:42.323302Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 33 (~330MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:42.326378973Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:42.325692Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.052}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:43.042968341Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:43.042630Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 34 (~340MB allocated)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:43.043771800Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:43.043402Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Request POST /debug/leak finished\", \"duration_seconds\": 0.202}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:44.363553+00:00",
+      "line": "CONTAINER_DIED container=airca-order-service-1 exit_code=137"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:52.308133179Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:52.306677Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Shutting down\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:52.308445898Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:52.307462Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Shutting down\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:52.411185641Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:52.409289Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Waiting for application shutdown.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:52.411617907Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:52.409995Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Waiting for application shutdown.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:52.415013707Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:52.411839Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Application shutdown complete.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:52.415188174Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:52.412499Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Application shutdown complete.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:52.415239394Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:52.413388Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Finished server process [1]\", \"color_message\": \"Finished server process [\\u001b[36m%d\\u001b[0m]\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:52.418643897Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:52.414396Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Finished server process [1]\", \"color_message\": \"Finished server process [\\u001b[36m%d\\u001b[0m]\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:48:58.973897956Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:48:58.972043Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 200, \"message\": \"Request GET /health finished\", \"duration_seconds\": 0.058}"
+    }
+  ],
+  "root_cause": "Out of Memory (OOM) due to memory leak",
+  "confidence": "high",
+  "reasoning": "The container died with exit code 137, which is a common indicator of an Out of Memory (OOM) error. The logs show a repeated pattern of the '/debug/leak' endpoint being called with increasing memory allocation, indicating a memory leak.",
+  "evidence": [
+    "{\"timestamp\": \"2026-07-12T13:48:27.303697810Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 11 (~110MB allocated)\"}",
+    "{\"timestamp\": \"2026-07-12T13:48:33.116337649Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/debug/leak\", \"status_code\": 200, \"message\": \"Debug leak endpoint called. Total chunks held: 19 (~190MB allocated)\"}"
+  ],
+  "conflict_flag": null,
+  "suggested_fix": "Investigate the cause of the memory leak and optimize the application to prevent excessive memory allocation. Consider increasing the container's memory limit or implementing a more efficient memory management strategy."
+}

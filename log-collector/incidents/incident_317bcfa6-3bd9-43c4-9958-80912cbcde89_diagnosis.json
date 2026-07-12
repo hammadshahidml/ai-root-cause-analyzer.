@@ -1,0 +1,299 @@
+{
+  "incident_id": "317bcfa6-3bd9-43c4-9958-80912cbcde89",
+  "detected_at": "2026-07-12T13:44:39.284071+00:00",
+  "trigger_line": "CONTAINER_DIED container=airca-order-service-1 exit_code=137",
+  "trigger_container": "airca-order-service-1",
+  "trigger_reason": "container_died",
+  "occurrence_count": 1,
+  "logs": [
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:09.892899386Z",
+      "line": "2026-07-12 13:44:09.892 UTC [42] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:09.893013517Z",
+      "line": "2026-07-12 13:44:09.892 UTC [42] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:09.894893531Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:09.893978Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (2/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:12.009360088Z",
+      "line": "2026-07-12 13:44:12.008 UTC [51] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:12.009688877Z",
+      "line": "2026-07-12 13:44:12.008 UTC [51] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:12.013159727Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:12.009802Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (3/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:14.090100251Z",
+      "line": "2026-07-12 13:44:14.089 UTC [52] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:14.090227371Z",
+      "line": "2026-07-12 13:44:14.089 UTC [52] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:14.092893486Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:14.091538Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (4/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:16.213276027Z",
+      "line": "2026-07-12 13:44:16.211 UTC [62] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:16.213387345Z",
+      "line": "2026-07-12 13:44:16.211 UTC [62] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:16.215729909Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:16.214071Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (5/15)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:18.243305662Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:18.242482Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (6/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:18.246353037Z",
+      "line": "2026-07-12 13:44:18.241 UTC [63] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:18.246403545Z",
+      "line": "2026-07-12 13:44:18.241 UTC [63] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:20.276705965Z",
+      "line": "2026-07-12 13:44:20.276 UTC [64] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:20.276766874Z",
+      "line": "2026-07-12 13:44:20.276 UTC [64] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:20.280812004Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:20.277523Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (7/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:22.401030960Z",
+      "line": "2026-07-12 13:44:22.400 UTC [73] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:22.401765353Z",
+      "line": "2026-07-12 13:44:22.400 UTC [73] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:22.406643335Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:22.406175Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (8/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:24.458026398Z",
+      "line": "2026-07-12 13:44:24.457 UTC [74] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:24.458277965Z",
+      "line": "2026-07-12 13:44:24.457 UTC [74] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:24.460011420Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:24.459149Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (9/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:26.489512832Z",
+      "line": "2026-07-12 13:44:26.489 UTC [81] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:26.489613458Z",
+      "line": "2026-07-12 13:44:26.489 UTC [81] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:26.491895158Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:26.491578Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (10/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:27.478774739Z",
+      "line": "2026-07-12 13:44:27.477 UTC [1] LOG:  received fast shutdown request"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:27.495207358Z",
+      "line": "2026-07-12 13:44:27.492 UTC [1] LOG:  aborting any active transactions"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:27.512227131Z",
+      "line": "2026-07-12 13:44:27.508 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 32) exited with exit code 1"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:27.512276744Z",
+      "line": "2026-07-12 13:44:27.511 UTC [27] LOG:  shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:27.518556695Z",
+      "line": "2026-07-12 13:44:27.516 UTC [27] LOG:  checkpoint starting: shutdown immediate"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:27.582684149Z",
+      "line": "2026-07-12 13:44:27.582 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.015 s, sync=0.008 s, total=0.071 s; sync files=2, longest=0.005 s, average=0.004 s; distance=0 kB, estimate=0 kB; lsn=0/152FC18, redo lsn=0/152FC18"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:27.598764576Z",
+      "line": "2026-07-12 13:44:27.598 UTC [1] LOG:  database system is shut down"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:32.499650312Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:32.499199Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (11/15)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:38.361043437Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:38.359628Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (12/15)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:39.284071+00:00",
+      "line": "CONTAINER_DIED container=airca-order-service-1 exit_code=137"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.044489079Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.044032Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Successfully connected to the database.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.162354996Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.161683Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Started server process [1]\", \"color_message\": \"Started server process [\\u001b[36m%d\\u001b[0m]\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.162424016Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.162025Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Started server process [1]\", \"color_message\": \"Started server process [\\u001b[36m%d\\u001b[0m]\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.162480231Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.162197Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Waiting for application startup.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.162831429Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.162362Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Waiting for application startup.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.163458304Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.162960Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Application startup complete.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.163505417Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.163212Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Application startup complete.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.173040471Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.172564Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)\", \"color_message\": \"Uvicorn running on \\u001b[1m%s://%s:%d\\u001b[0m (Press CTRL+C to quit)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:49.173106190Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:49.172749Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)\", \"color_message\": \"Uvicorn running on \\u001b[1m%s://%s:%d\\u001b[0m (Press CTRL+C to quit)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:52.672916631Z",
+      "line": "2026-07-12 13:44:52.671 UTC [1] LOG:  received fast shutdown request"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:52.681063799Z",
+      "line": "2026-07-12 13:44:52.678 UTC [1] LOG:  aborting any active transactions"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:52.681099209Z",
+      "line": "2026-07-12 13:44:52.679 UTC [42] FATAL:  terminating connection due to administrator command"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:52.691016170Z",
+      "line": "2026-07-12 13:44:52.690 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 32) exited with exit code 1"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:52.691897116Z",
+      "line": "2026-07-12 13:44:52.691 UTC [27] LOG:  shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:52.695687071Z",
+      "line": "2026-07-12 13:44:52.695 UTC [27] LOG:  checkpoint starting: shutdown immediate"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:52.714231234Z",
+      "line": "2026-07-12 13:44:52.713 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.002 s, total=0.023 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/152FC90, redo lsn=0/152FC90"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-12T13:44:52.723439698Z",
+      "line": "2026-07-12 13:44:52.723 UTC [1] LOG:  database system is shut down"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:55.464275960Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:55.462593Z\", \"level\": \"ERROR\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 500, \"message\": \"Health check failed: (psycopg2.OperationalError) server closed the connection unexpectedly\\n\\tThis probably means the server terminated abnormally\\n\\tbefore or while processing the request.\\n\\n[SQL: SELECT 1]\\n(Background on this error at: https://sqlalche.me/e/20/e3q8)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-12T13:44:55.478113315Z",
+      "line": "{\"timestamp\": \"2026-07-12T13:44:55.476052Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 500, \"message\": \"Request GET /health finished\", \"duration_seconds\": 0.071}"
+    }
+  ],
+  "root_cause": "Database connection issue due to password authentication failure",
+  "confidence": "high",
+  "reasoning": "The logs show repeated password authentication failures for the 'postgres' user, indicating a database connection issue. The 'airca-order-service-1' container died with exit code 137, which is likely due to the database connection failure.",
+  "evidence": [
+    "2026-07-12 13:44:09.892 UTC [42] FATAL:  password authentication failed for user \"postgres\"",
+    "2026-07-12 13:44:09.892 UTC [42] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+  ],
+  "conflict_flag": null,
+  "suggested_fix": "Verify the database password and configuration to ensure correct authentication. Check the 'pg_hba.conf' file to ensure the authentication method is correctly configured."
+}

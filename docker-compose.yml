@@ -20,6 +20,7 @@ services:
     build:
       context: ./order-service
     restart: always
+    mem_limit: 200m
     ports:
       - "8000:8000"
     environment:
