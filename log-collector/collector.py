@@ -11,6 +11,33 @@ active_streams, active_incidents = {}, []
 history_buffer = deque()
 latest_ts = None
 
+# FIX: Deduplication — tracks the last time each (container, error signature)
+# combination triggered a new incident. If the same signature repeats within
+# DEDUP_WINDOW_SECONDS, we treat it as part of the SAME ongoing failure
+# (e.g. a crash-restart loop) instead of creating a new incident file.
+DEDUP_WINDOW_SECONDS = 20.0
+recent_triggers = {}  # (container, signature) -> last_trigger_datetime
+
+
+import re
+
+def error_signature(message: str) -> str:
+    """Build a short, stable signature for an error message so repeated
+    occurrences of the SAME underlying error can be recognized, even when
+    timestamps, PIDs, or other numeric details differ between occurrences.
+
+    FIX: the first version used message[:80] directly, but log lines like
+    postgres's often embed a changing PID/timestamp right at the start
+    (e.g. "[75] FATAL: ..." vs "[82] FATAL: ..."), so every occurrence got
+    a different signature and deduplication never matched. Stripping all
+    digits first removes that variability while keeping the actual error
+    text intact.
+    """
+    normalized = re.sub(r'\d+', '', message)
+    normalized = re.sub(r'\s+', ' ', normalized).strip()
+    return normalized[:100]
+
+
 def parse_timestamp(ts_str):
     if not ts_str: 
         return datetime.now(timezone.utc)
@@ -46,17 +73,19 @@ def finalize_incident(inc):
         "detected_at": inc["detected_at"],
         "trigger_line": inc["trigger_line"],
         "trigger_container": inc["trigger_container"],
+        "occurrence_count": inc.get("occurrence_count", 1),
         "logs": [{"container": e["container"], "timestamp": e["timestamp"], "line": e["line"]} for e in inc["logs"]]
     }
-    # FIX: write to a temp file first, then atomically rename it into place.
-    # This prevents corrupted/interleaved files when multiple incidents
-    # finalize in rapid succession (e.g. during a crash loop).
+    # Atomic write: temp file first, then rename, to avoid corruption when
+    # multiple incidents finalize in rapid succession.
     try:
         tmp_filepath = filepath + f".{uuid.uuid4().hex}.tmp"
         with open(tmp_filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
         os.replace(tmp_filepath, filepath)
-        print(f"Incident captured: incidents/{filename}")
+        occ = data["occurrence_count"]
+        occ_note = f" (seen {occ}x, deduplicated)" if occ > 1 else ""
+        print(f"Incident captured: incidents/{filename}{occ_note}")
     except Exception as e:
         print(f"Error saving: {e}")
 
@@ -122,16 +151,40 @@ def main():
                 is_trigger = True
 
         if is_trigger:
-            new_inc = {
-                "incident_id": str(uuid.uuid4()),
-                "detected_at": timestamp_str or t_log.isoformat(),
-                "trigger_time": t_log,
-                "real_trigger_time": datetime.now(timezone.utc),
-                "trigger_line": message,
-                "trigger_container": container_name,
-                "logs": [e for _, e in history_buffer]
-            }
-            active_incidents.append(new_inc)
+            now_real = datetime.now(timezone.utc)
+            sig = error_signature(message)
+            dedup_key = (container_name, sig)
+
+            last_seen = recent_triggers.get(dedup_key)
+            is_duplicate = (
+                last_seen is not None
+                and (now_real - last_seen).total_seconds() <= DEDUP_WINDOW_SECONDS
+            )
+
+            if is_duplicate:
+                # FIX: Same error signature from the same container seen
+                # recently — treat as part of the SAME ongoing failure
+                # instead of creating a new incident. Bump the occurrence
+                # count on the matching active incident, if still open.
+                recent_triggers[dedup_key] = now_real
+                for inc in active_incidents:
+                    if inc["trigger_container"] == container_name and inc.get("signature") == sig:
+                        inc["occurrence_count"] = inc.get("occurrence_count", 1) + 1
+                        break
+            else:
+                recent_triggers[dedup_key] = now_real
+                new_inc = {
+                    "incident_id": str(uuid.uuid4()),
+                    "detected_at": timestamp_str or t_log.isoformat(),
+                    "trigger_time": t_log,
+                    "real_trigger_time": now_real,
+                    "trigger_line": message,
+                    "trigger_container": container_name,
+                    "signature": sig,
+                    "occurrence_count": 1,
+                    "logs": [e for _, e in history_buffer]
+                }
+                active_incidents.append(new_inc)
 
         # Close incidents that are older than 30 seconds
         now_real, still_active = datetime.now(timezone.utc), []
