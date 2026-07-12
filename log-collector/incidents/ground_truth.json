@@ -18,5 +18,10 @@
     "expected_root_cause_keywords": ["slow", "latency", "duration", "threshold"],
     "expected_confidence": "high",
     "notes": "Latency-triggered incident (SLOW_REQUEST marker), self-explanatory that the request was slow even though the underlying cause of the slowness is unknown"
+  },
+  "incident_2026-07-12T13_32_46.536057_00_00.json": {
+    "expected_root_cause_keywords": ["oom", "memory", "leak", "out of memory"],
+    "expected_confidence": "high",
+    "notes": "Container-died event (exit code 137) triggered via Docker event-stream watching, not log content — tests whether diagnosis correctly connects the OOM exit code with preceding memory-leak warnings"
   }
 }
