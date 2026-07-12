@@ -1,0 +1,58 @@
+{
+  "incident_id": "72ef0244-9a12-4c1a-9c4a-035c2ae8a9f4",
+  "detected_at": "2026-07-11T13:06:28.935923641Z",
+  "trigger_line": "2026-07-11 13:06:28.927 UTC [101] FATAL:  terminating connection due to administrator command",
+  "trigger_container": "airca-postgres-1",
+  "logs": [
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:06:28.769047711Z",
+      "line": "2026-07-11 13:06:28.749 UTC [1] LOG:  received fast shutdown request"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:06:28.822936086Z",
+      "line": "2026-07-11 13:06:28.822 UTC [1] LOG:  aborting any active transactions"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:06:28.916470242Z",
+      "line": "2026-07-11 13:06:28.905 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 34) exited with exit code 1"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:06:28.935923641Z",
+      "line": "2026-07-11 13:06:28.927 UTC [101] FATAL:  terminating connection due to administrator command"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:06:29.123723133Z",
+      "line": "2026-07-11 13:06:29.105 UTC [29] LOG:  shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:06:29.186532639Z",
+      "line": "2026-07-11 13:06:29.186 UTC [29] LOG:  checkpoint starting: shutdown immediate"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:06:29.342010152Z",
+      "line": "2026-07-11 13:06:29.341 UTC [29] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.038 s, sync=0.011 s, total=0.224 s; sync files=2, longest=0.008 s, average=0.006 s; distance=0 kB, estimate=0 kB; lsn=0/152EDF0, redo lsn=0/152EDF0"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:06:29.377785224Z",
+      "line": "2026-07-11 13:06:29.377 UTC [1] LOG:  database system is shut down"
+    }
+  ],
+  "root_cause": "Administrator command to shut down the database",
+  "confidence": "high",
+  "reasoning": "The error message 'terminating connection due to administrator command' and the surrounding log context indicate that the database was shut down intentionally by an administrator command, as evidenced by the 'received fast shutdown request' and 'shutting down' log lines.",
+  "evidence": [
+    "2026-07-11 13:06:28.749 UTC [1] LOG:  received fast shutdown request",
+    "2026-07-11 13:06:28.927 UTC [101] FATAL:  terminating connection due to administrator command",
+    "2026-07-11 13:06:29.105 UTC [29] LOG:  shutting down"
+  ],
+  "conflict_flag": null,
+  "suggested_fix": "No action needed, as the shutdown was intentional. However, if the shutdown was not intended, investigate who or what initiated the shutdown command."
+}

@@ -1,0 +1,17 @@
+{
+  "incident_2026-07-11T05_33_36.490411386Z.json": {
+    "expected_root_cause_keywords": ["dns", "hostname", "postgres", "unresolved", "translate"],
+    "expected_confidence": "low",
+    "notes": "Thin context, DNS-style error with no upstream evidence — should NOT be high confidence"
+  },
+  "incident_2026-07-11T05_38_38.411075485Z.json": {
+    "expected_root_cause_keywords": ["postgres", "shutdown", "shut down"],
+    "expected_confidence": "high",
+    "notes": "Rich context showing explicit Postgres shutdown sequence"
+  },
+  "incident_2026-07-11T13_40_25.563541513Z.json": {
+    "expected_root_cause_keywords": ["password", "authentication"],
+    "expected_confidence": "high",
+    "notes": "Self-explanatory authentication failure"
+  }
+}

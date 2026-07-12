@@ -1,0 +1,7 @@
+.env
+.env.wrongpassword
+*.tmp
+__pycache__/
+*.pyc
+.venv/
+log-collector/incidents/archive/

@@ -1,0 +1,1081 @@
+{
+  "incident_id": "cf2554eb-f68e-4950-b0d0-4f579ea65330",
+  "detected_at": "2026-07-11T13:40:25.563541513Z",
+  "trigger_line": "2026-07-11 13:40:25.563 UTC [75] FATAL:  password authentication failed for user \"postgres\"",
+  "trigger_container": "airca-postgres-1",
+  "logs": [
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:39:59.214808236Z",
+      "line": "2026-07-11 13:39:59.214 UTC [1] LOG:  received fast shutdown request"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:39:59.224866344Z",
+      "line": "2026-07-11 13:39:59.224 UTC [1] LOG:  aborting any active transactions"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:39:59.229763972Z",
+      "line": "2026-07-11 13:39:59.229 UTC [41] FATAL:  terminating connection due to administrator command"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:39:59.247283595Z",
+      "line": "2026-07-11 13:39:59.247 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 32) exited with exit code 1"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:39:59.254559374Z",
+      "line": "2026-07-11 13:39:59.254 UTC [27] LOG:  shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:39:59.277855892Z",
+      "line": "2026-07-11 13:39:59.275 UTC [27] LOG:  checkpoint starting: shutdown immediate"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:39:59.342993744Z",
+      "line": "2026-07-11 13:39:59.339 UTC [27] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.085 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/152F280, redo lsn=0/152F280"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:39:59.366396982Z",
+      "line": "2026-07-11 13:39:59.360 UTC [1] LOG:  database system is shut down"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:00.557168604Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:00.556235Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Shutting down\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:00.557215113Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:00.556412Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Shutting down\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:00.660383110Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:00.657989Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Waiting for application shutdown.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:00.660427018Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:00.658144Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Waiting for application shutdown.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:00.660453723Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:00.658614Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Application shutdown complete.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:00.660459424Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:00.658700Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Application shutdown complete.\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:00.666933779Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:00.659213Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Finished server process [1]\", \"color_message\": \"Finished server process [\\u001b[36m%d\\u001b[0m]\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:00.667015895Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:00.659771Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Finished server process [1]\", \"color_message\": \"Finished server process [\\u001b[36m%d\\u001b[0m]\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:09.355096249Z",
+      "line": "2026-07-11 13:40:09.354 UTC [42] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:09.355142955Z",
+      "line": "2026-07-11 13:40:09.354 UTC [42] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:11.404081996Z",
+      "line": "2026-07-11 13:40:11.403 UTC [43] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:11.404127303Z",
+      "line": "2026-07-11 13:40:11.403 UTC [43] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:13.419589173Z",
+      "line": "2026-07-11 13:40:13.417 UTC [52] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:13.419665583Z",
+      "line": "2026-07-11 13:40:13.417 UTC [52] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:15.433445429Z",
+      "line": "2026-07-11 13:40:15.433 UTC [53] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:15.433490335Z",
+      "line": "2026-07-11 13:40:15.433 UTC [53] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:15.442512040Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:15.442202Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (4/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:17.453350541Z",
+      "line": "2026-07-11 13:40:17.453 UTC [62] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:17.453425855Z",
+      "line": "2026-07-11 13:40:17.453 UTC [62] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:17.454237106Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:17.453914Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (5/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:19.479022576Z",
+      "line": "2026-07-11 13:40:19.478 UTC [63] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:19.479074286Z",
+      "line": "2026-07-11 13:40:19.478 UTC [63] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:19.484928972Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:19.484462Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (6/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:21.507502633Z",
+      "line": "2026-07-11 13:40:21.507 UTC [64] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:21.507541240Z",
+      "line": "2026-07-11 13:40:21.507 UTC [64] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:21.513961031Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:21.513583Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (7/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:23.549642223Z",
+      "line": "2026-07-11 13:40:23.549 UTC [74] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:23.549726139Z",
+      "line": "2026-07-11 13:40:23.549 UTC [74] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:23.550349354Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:23.550016Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (8/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:25.563541513Z",
+      "line": "2026-07-11 13:40:25.563 UTC [75] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:25.563582321Z",
+      "line": "2026-07-11 13:40:25.563 UTC [75] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:25.564842768Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:25.564511Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (9/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:27.576570255Z",
+      "line": "2026-07-11 13:40:27.576 UTC [76] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:27.576608163Z",
+      "line": "2026-07-11 13:40:27.576 UTC [76] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:27.577090557Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:27.576838Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (10/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:29.596174985Z",
+      "line": "2026-07-11 13:40:29.595 UTC [85] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:29.596281106Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:29.595719Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (11/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:29.596307811Z",
+      "line": "2026-07-11 13:40:29.595 UTC [85] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:31.624903501Z",
+      "line": "2026-07-11 13:40:31.624 UTC [86] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:31.624951811Z",
+      "line": "2026-07-11 13:40:31.624 UTC [86] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:31.626025921Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:31.625648Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (12/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:33.640125466Z",
+      "line": "2026-07-11 13:40:33.639 UTC [97] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:33.640163574Z",
+      "line": "2026-07-11 13:40:33.639 UTC [97] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:33.640721191Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:33.640345Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (13/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:35.658138670Z",
+      "line": "2026-07-11 13:40:35.656 UTC [98] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:35.658154774Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:35.657773Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (14/15)\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:35.658180879Z",
+      "line": "2026-07-11 13:40:35.656 UTC [98] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674286983Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:37.671517Z\", \"level\": \"ERROR\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Could not connect to database after 15 retries. Exiting.\"}"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:37.674287683Z",
+      "line": "2026-07-11 13:40:37.671 UTC [99] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:37.674327892Z",
+      "line": "2026-07-11 13:40:37.671 UTC [99] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674342595Z",
+      "line": "Traceback (most recent call last):"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674348196Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 144, in __init__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674352497Z",
+      "line": "    self._dbapi_connection = engine.raw_connection()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674356598Z",
+      "line": "                             ^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674379002Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 3319, in raw_connection"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674385604Z",
+      "line": "    return self.pool.connect()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674389705Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674393605Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 448, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674398006Z",
+      "line": "    return _ConnectionFairy._checkout(self)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674401807Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674745479Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 1272, in _checkout"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674757782Z",
+      "line": "    fairy = _ConnectionRecord.checkout(pool)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674762883Z",
+      "line": "            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674768184Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 712, in checkout"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.674958024Z",
+      "line": "    rec = pool._do_get()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.675081350Z",
+      "line": "          ^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.675089752Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py\", line 178, in _do_get"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.675403617Z",
+      "line": "    with util.safe_reraise():"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.675529344Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py\", line 122, in __exit__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678283322Z",
+      "line": "    raise exc_value.with_traceback(exc_tb)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678311828Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py\", line 176, in _do_get"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678319829Z",
+      "line": "    return self._create_connection()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678324730Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678329331Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 389, in _create_connection"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678336433Z",
+      "line": "    return _ConnectionRecord(self)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678342134Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678346735Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 674, in __init__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678354037Z",
+      "line": "    self.__connect()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.678361438Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 900, in __connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679212117Z",
+      "line": "    with util.safe_reraise():"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679309837Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py\", line 122, in __exit__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679320539Z",
+      "line": "    raise exc_value.with_traceback(exc_tb)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679325440Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 896, in __connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679455768Z",
+      "line": "    self.dbapi_connection = connection = pool._invoke_creator(self)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679468571Z",
+      "line": "                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679473272Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py\", line 667, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679938869Z",
+      "line": "    return dialect.connect(*cargs_tup, **cparams)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679957573Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.679962674Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py\", line 630, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.680629414Z",
+      "line": "    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.680704930Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.680716832Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/psycopg2/__init__.py\", line 122, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.680958983Z",
+      "line": "    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681094612Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681212136Z",
+      "line": "psycopg2.OperationalError: connection to server at \"postgres\" (172.18.0.2), port 5432 failed: FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681223539Z",
+      "line": ""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681227940Z",
+      "line": ""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681232041Z",
+      "line": "The above exception was the direct cause of the following exception:"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681256346Z",
+      "line": ""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681532004Z",
+      "line": "Traceback (most recent call last):"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681542006Z",
+      "line": "  File \"/usr/local/bin/uvicorn\", line 8, in <module>"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681547207Z",
+      "line": "    sys.exit(main())"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681665532Z",
+      "line": "             ^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.681675134Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/click/core.py\", line 1569, in __call__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.682996911Z",
+      "line": "    return self.main(*args, **kwargs)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.683030518Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.683037420Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/click/core.py\", line 1490, in main"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.683940909Z",
+      "line": "    rv = self.invoke(ctx)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.683963914Z",
+      "line": "         ^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.683970615Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/click/core.py\", line 1353, in invoke"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.684663561Z",
+      "line": "    return ctx.invoke(self.callback, **ctx.params)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.684836197Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.684886508Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/click/core.py\", line 907, in invoke"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.685420920Z",
+      "line": "    return callback(*args, **kwargs)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.685607559Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.685646267Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/uvicorn/main.py\", line 440, in main"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.694290181Z",
+      "line": "    run("
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.694322388Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/uvicorn/main.py\", line 609, in run"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698211404Z",
+      "line": "    config.load_app()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698269216Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/uvicorn/config.py\", line 427, in load_app"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698276618Z",
+      "line": "    return import_from_string(self.app)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698281319Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698285620Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/uvicorn/importer.py\", line 19, in import_from_string"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698290421Z",
+      "line": "    module = importlib.import_module(module_str)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698294321Z",
+      "line": "             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698298122Z",
+      "line": "  File \"/usr/local/lib/python3.11/importlib/__init__.py\", line 126, in import_module"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698302123Z",
+      "line": "    return _bootstrap._gcd_import(name[level:], package, level)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698306224Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698309925Z",
+      "line": "  File \"<frozen importlib._bootstrap>\", line 1204, in _gcd_import"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698784624Z",
+      "line": "  File \"<frozen importlib._bootstrap>\", line 1176, in _find_and_load"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698796227Z",
+      "line": "  File \"<frozen importlib._bootstrap>\", line 1147, in _find_and_load_unlocked"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698801228Z",
+      "line": "  File \"<frozen importlib._bootstrap>\", line 690, in _load_unlocked"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698805429Z",
+      "line": "  File \"<frozen importlib._bootstrap_external>\", line 940, in exec_module"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698809730Z",
+      "line": "  File \"<frozen importlib._bootstrap>\", line 241, in _call_with_frames_removed"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698814030Z",
+      "line": "  File \"/app/main.py\", line 56, in <module>"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698818231Z",
+      "line": "    raise e"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698822032Z",
+      "line": "  File \"/app/main.py\", line 49, in <module>"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698826633Z",
+      "line": "    with engine.connect() as conn:"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698830734Z",
+      "line": "         ^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698834635Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 3295, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698838936Z",
+      "line": "    return self._connection_cls(self)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698876143Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698885845Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 146, in __init__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698904649Z",
+      "line": "    Connection._handle_dbapi_exception_noconnection("
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698908950Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 2450, in _handle_dbapi_exception_noconnection"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698913251Z",
+      "line": "    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698917152Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 144, in __init__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698929255Z",
+      "line": "    self._dbapi_connection = engine.raw_connection()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698937056Z",
+      "line": "                             ^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.698941757Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/base.py\", line 3319, in raw_connection"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.710561996Z",
+      "line": "    return self.pool.connect()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.710618308Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.710626809Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 448, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.711359863Z",
+      "line": "    return _ConnectionFairy._checkout(self)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.711375867Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.711380568Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 1272, in _checkout"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.711699935Z",
+      "line": "    fairy = _ConnectionRecord.checkout(pool)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.711714938Z",
+      "line": "            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.711719539Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 712, in checkout"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.712034905Z",
+      "line": "    rec = pool._do_get()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.712911889Z",
+      "line": "          ^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.712932593Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py\", line 178, in _do_get"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.712937394Z",
+      "line": "    with util.safe_reraise():"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.712941495Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py\", line 122, in __exit__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.713468406Z",
+      "line": "    raise exc_value.with_traceback(exc_tb)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.713483709Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py\", line 176, in _do_get"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.713489410Z",
+      "line": "    return self._create_connection()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.713494111Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.713504413Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 389, in _create_connection"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.714209961Z",
+      "line": "    return _ConnectionRecord(self)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.714231866Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.714900006Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 674, in __init__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.714921711Z",
+      "line": "    self.__connect()"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.714993326Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 900, in __connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.715001027Z",
+      "line": "    with util.safe_reraise():"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.715006629Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py\", line 122, in __exit__"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718490260Z",
+      "line": "    raise exc_value.with_traceback(exc_tb)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718571277Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py\", line 896, in __connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718580179Z",
+      "line": "    self.dbapi_connection = connection = pool._invoke_creator(self)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718584780Z",
+      "line": "                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718588780Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py\", line 667, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718592581Z",
+      "line": "    return dialect.connect(*cargs_tup, **cparams)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718596382Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718600283Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py\", line 630, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718604184Z",
+      "line": "    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718608384Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718618587Z",
+      "line": "  File \"/usr/local/lib/python3.11/site-packages/psycopg2/__init__.py\", line 122, in connect"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718623988Z",
+      "line": "    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.718628789Z",
+      "line": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.726600962Z",
+      "line": "sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at \"postgres\" (172.18.0.2), port 5432 failed: FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.726644671Z",
+      "line": ""
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:37.726650572Z",
+      "line": "(Background on this error at: https://sqlalche.me/e/20/e3q8)"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:40.534429366Z",
+      "line": "2026-07-11 13:40:40.533 UTC [108] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:40.534584697Z",
+      "line": "2026-07-11 13:40:40.533 UTC [108] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:42.565040076Z",
+      "line": "2026-07-11 13:40:42.564 UTC [109] FATAL:  password authentication failed for user \"postgres\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:42.565117492Z",
+      "line": "2026-07-11 13:40:42.564 UTC [109] DETAIL:  Connection matched file \"/var/lib/postgresql/data/pg_hba.conf\" line 128: \"host all all all scram-sha-256\""
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:44.378692694Z",
+      "line": "2026-07-11 13:40:44.378 UTC [1] LOG:  received fast shutdown request"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:45.460166677Z",
+      "line": "2026-07-11 13:40:45.460 UTC [1] LOG:  aborting any active transactions"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:45.480886797Z",
+      "line": "2026-07-11 13:40:45.465 UTC [118] FATAL:  the database system is shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:45.480982917Z",
+      "line": "2026-07-11 13:40:45.479 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 33) exited with exit code 1"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:45.483127354Z",
+      "line": "2026-07-11 13:40:45.482 UTC [28] LOG:  shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:45.556773555Z",
+      "line": "2026-07-11 13:40:45.556 UTC [28] LOG:  checkpoint starting: shutdown immediate"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:45.875726521Z",
+      "line": "2026-07-11 13:40:45.875 UTC [28] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.141 s, sync=0.017 s, total=0.394 s; sync files=2, longest=0.009 s, average=0.009 s; distance=0 kB, estimate=0 kB; lsn=0/152F330, redo lsn=0/152F330"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T13:40:45.902653106Z",
+      "line": "2026-07-11 13:40:45.897 UTC [1] LOG:  database system is shut down"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T13:40:51.087703327Z",
+      "line": "{\"timestamp\": \"2026-07-11T13:40:51.085558Z\", \"level\": \"INFO\", \"service_name\": \"order-service\", \"endpoint\": null, \"status_code\": null, \"message\": \"Database not ready. Retrying in 2 seconds... (4/15)\"}"
+    }
+  ],
+  "root_cause": "Incorrect password for user \"postgres\"",
+  "confidence": "high",
+  "reasoning": "The error message 'password authentication failed for user \"postgres\"' directly indicates the issue is with the password authentication, and the surrounding context does not suggest any other plausible cause such as network issues or database shutdown.",
+  "evidence": [
+    "2026-07-11 13:40:25.563 UTC [75] FATAL:  password authentication failed for user \"postgres\""
+  ],
+  "conflict_flag": null,
+  "suggested_fix": "Verify the password for the \"postgres\" user and ensure it matches the expected password."
+}

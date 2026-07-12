@@ -1,0 +1,62 @@
+{
+  "incident_id": "2a9ab946-6063-4155-91b1-a18c230e3161",
+  "detected_at": "2026-07-11T05:38:38.411075485Z",
+  "trigger_line": "{\"timestamp\": \"2026-07-11T05:38:38.395005Z\", \"level\": \"ERROR\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 500, \"message\": \"Health check failed: (psycopg2.OperationalError) could not translate host name \\\"postgres\\\" to address: Name or service not known\\n\\n(Background on this error at: https://sqlalche.me/e/20/e3q8)\"}",
+  "trigger_container": "airca-order-service-1",
+  "logs": [
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T05:38:17.222385451Z",
+      "line": "2026-07-11 05:38:17.222 UTC [1] LOG:  received fast shutdown request"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T05:38:17.233778321Z",
+      "line": "2026-07-11 05:38:17.233 UTC [1] LOG:  aborting any active transactions"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T05:38:17.241604968Z",
+      "line": "2026-07-11 05:38:17.241 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 32) exited with exit code 1"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T05:38:17.245062160Z",
+      "line": "2026-07-11 05:38:17.244 UTC [27] LOG:  shutting down"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T05:38:17.259953734Z",
+      "line": "2026-07-11 05:38:17.259 UTC [27] LOG:  checkpoint starting: shutdown immediate"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T05:38:17.749557859Z",
+      "line": "2026-07-11 05:38:17.749 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.297 s, sync=0.071 s, total=0.505 s; sync files=2, longest=0.067 s, average=0.036 s; distance=0 kB, estimate=0 kB; lsn=0/152EBA8, redo lsn=0/152EBA8"
+    },
+    {
+      "container": "airca-postgres-1",
+      "timestamp": "2026-07-11T05:38:17.761981225Z",
+      "line": "2026-07-11 05:38:17.761 UTC [1] LOG:  database system is shut down"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T05:38:38.411075485Z",
+      "line": "{\"timestamp\": \"2026-07-11T05:38:38.395005Z\", \"level\": \"ERROR\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 500, \"message\": \"Health check failed: (psycopg2.OperationalError) could not translate host name \\\"postgres\\\" to address: Name or service not known\\n\\n(Background on this error at: https://sqlalche.me/e/20/e3q8)\"}"
+    },
+    {
+      "container": "airca-order-service-1",
+      "timestamp": "2026-07-11T05:38:38.507849979Z",
+      "line": "{\"timestamp\": \"2026-07-11T05:38:38.507476Z\", \"level\": \"WARNING\", \"service_name\": \"order-service\", \"endpoint\": \"/health\", \"status_code\": 500, \"message\": \"Request GET /health finished\"}"
+    }
+  ],
+  "root_cause": "Postgres container shutdown",
+  "confidence": "high",
+  "reasoning": "The error message indicates a failure to translate the host name 'postgres' to an address, but the surrounding log context shows that the Postgres container was shut down, as evidenced by the 'received fast shutdown request' and 'database system is shut down' log lines.",
+  "evidence": [
+    "2026-07-11 05:38:17.222 UTC [1] LOG:  received fast shutdown request",
+    "2026-07-11 05:38:17.761 UTC [1] LOG:  database system is shut down"
+  ],
+  "conflict_flag": null,
+  "suggested_fix": "Investigate why the Postgres container was shut down and ensure it is running before attempting to connect to it."
+}
