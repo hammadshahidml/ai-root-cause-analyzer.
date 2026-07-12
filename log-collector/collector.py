@@ -62,6 +62,39 @@ def stream_container_logs(container):
     except Exception: 
         pass
 
+def watch_container_events(client):
+    """FIX: OOM-kill detection gap — a container killed by the OOM killer
+    (or any abnormal exit) is terminated before its process can log
+    anything about its own death, so log-content scanning alone never
+    catches it. Docker itself always knows, via its event stream, exactly
+    when and why a container died (including the exit code). This watches
+    that event stream directly and feeds a synthetic "log line" into the
+    same queue used for real logs, so it flows through the existing
+    trigger/dedup/incident pipeline without needing a separate one.
+    """
+    try:
+        for event in client.events(decode=True, filters={"type": "container", "event": "die"}):
+            try:
+                attrs = event.get("Actor", {}).get("Attributes", {})
+                container_name = attrs.get("name", "unknown")
+                compose_project = attrs.get("com.docker.compose.project", "")
+                if compose_project != "airca":
+                    continue
+                exit_code = attrs.get("exitCode", "0")
+                if str(exit_code) == "0":
+                    # Normal, intentional stop — not a failure, skip it.
+                    continue
+                now_iso = datetime.now(timezone.utc).isoformat()
+                synthetic_line = (
+                    f"{now_iso} CONTAINER_DIED container={container_name} "
+                    f"exit_code={exit_code}"
+                ).encode("utf-8")
+                log_queue.put((container_name, synthetic_line))
+            except Exception:
+                continue
+    except Exception as e:
+        print(f"Error watching container events: {e}")
+
 def finalize_incident(inc):
     inc["logs"].sort(key=lambda x: x["timestamp"])
     # Format a safe filename timestamp for Windows
@@ -94,6 +127,13 @@ def main():
     global latest_ts, active_incidents
     client = docker.from_env()
     print("Log collector started. Watching containers in project 'airca'...")
+
+    # FIX: start the container-events watcher alongside the existing
+    # log-streaming watchers, so OOM kills and other abnormal exits are
+    # caught even when the dying process never gets to log an error.
+    events_thread = threading.Thread(target=watch_container_events, args=(client,), daemon=True)
+    events_thread.start()
+
     last_check = 0
     while True:
         now = time.time()
@@ -152,9 +192,6 @@ def main():
                 if lvl in ("ERROR", "FATAL"):
                     is_trigger = True
                     trigger_reason = "error_log"
-                # FIX: latency detection gap — watch for the SLOW_REQUEST
-                # marker logged by order-service's middleware, since a slow
-                # but successful request never produces an ERROR/FATAL line.
                 elif "SLOW_REQUEST" in msg_text:
                     is_trigger = True
                     trigger_reason = "slow_request"
@@ -165,6 +202,11 @@ def main():
             elif "SLOW_REQUEST" in message:
                 is_trigger = True
                 trigger_reason = "slow_request"
+            # FIX: OOM-kill / abnormal-exit detection, via the synthetic
+            # line produced by watch_container_events().
+            elif "CONTAINER_DIED" in message:
+                is_trigger = True
+                trigger_reason = "container_died"
 
         if is_trigger:
             now_real = datetime.now(timezone.utc)
