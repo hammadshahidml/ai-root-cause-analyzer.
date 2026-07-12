@@ -13,5 +13,10 @@
     "expected_root_cause_keywords": ["password", "authentication"],
     "expected_confidence": "high",
     "notes": "Self-explanatory authentication failure"
+  },
+  "incident_2026-07-12T13_03_56.414916732Z.json": {
+    "expected_root_cause_keywords": ["slow", "latency", "duration", "threshold"],
+    "expected_confidence": "high",
+    "notes": "Latency-triggered incident (SLOW_REQUEST marker), self-explanatory that the request was slow even though the underlying cause of the slowness is unknown"
   }
 }
